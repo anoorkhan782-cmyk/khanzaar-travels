@@ -48,7 +48,7 @@ INSERT IGNORE INTO `packages` (id, name, price, duration, description, image) VA
 
 **then write** http://localhost/MRH1/MRH1/create_admin.php in the  browser searchbar **note** the path should be correct like my path include these folders MRH1/MRH1/, 
 
-**admin login will get created and then add the pasword and email provided for admin  login**, 
+**admin login will get created  http://localhost/MRH1/MRH1/admin_login.php and then add the pasword and email provided for admin  login**, 
 
 
 **Environment variables**(database name book_db , host localhost xampp ,  deployment at infinityfree domain), 
