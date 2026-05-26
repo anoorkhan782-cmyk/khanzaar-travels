@@ -2,10 +2,10 @@
 Khanzaar Travels is a responsive travel website for tour booking and destination management.
 
 **Setup instructions (how to run  locally)**
-install xampp
-then start appache and mysql in xampp
-then in browser search bar type localhost/phpmyadmin/
-create a database book_db
+install xampp, 
+then start appache and mysql in xampp, 
+then in browser search bar type localhost/phpmyadmin/, 
+create a database book_db, 
 **In book_db write sql query in sql**
 
 -- 1. Create Packages table
@@ -43,14 +43,14 @@ INSERT IGNORE INTO `packages` (id, name, price, duration, description, image) VA
 (2, 'Hunza Valley', '25,000', '5 Days', 'Attabad Lake, Rakaposhi View, Karimabad Bazaar', 'hunza.jpg'),
 (3, 'Islamabad Tour', '10,000', '2 Days', 'Faisal Mosque, Daman-e-Koh, Lok Virsa', 'masjid.jpg');
 
-**click on go**
-**all required tabels will get created** 
+**click on go**, 
+**all required tabels will get created**, 
 
-**then write** http://localhost/MRH1/MRH1/create_admin.php in the  browser searchbar **note** the path should be correct like my path include these folders MRH1/MRH1/
+**then write** http://localhost/MRH1/MRH1/create_admin.php in the  browser searchbar **note** the path should be correct like my path include these folders MRH1/MRH1/, 
 
-**admin login will get created and then add the pasword and email provided for admin  login**
+**admin login will get created and then add the pasword and email provided for admin  login**, 
 
 
-**Environment variables**(database name book_db , host localhost xampp ,  deployment at infinityfree domain)
+**Environment variables**(database name book_db , host localhost xampp ,  deployment at infinityfree domain), 
 
 **Live deployment URL** — https://khanzaaar.infinityfreeapp.com/home.php
