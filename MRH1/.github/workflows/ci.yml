@@ -1,0 +1,55 @@
+name: Khanzaar Travel Website - CI Tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  # ─────────────────────────────────────────
+  # JOB 1: PHPUnit Unit Tests
+  # ─────────────────────────────────────────
+  unit-tests:
+    name: PHP Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+          coverage: none
+
+      - name: Install Composer dependencies
+        run: composer install --no-progress --prefer-dist
+
+      - name: Run PHPUnit tests
+        run: vendor/bin/phpunit --testdox
+
+  # ─────────────────────────────────────────
+  # JOB 2: Cypress E2E Tests
+  # ─────────────────────────────────────────
+  e2e-tests:
+    name: Cypress E2E Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install Cypress
+        run: npm install cypress --save-dev
+
+      - name: Run Cypress E2E tests
+        run: npx cypress run --config-file cypress.config.js
+        env:
+          CYPRESS_baseUrl: http://khanzaar.infinityfreeapp.com
