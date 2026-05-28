@@ -22,12 +22,12 @@ jobs:
 
       - name: Install Composer dependencies
         run: |
-          cd MRH1/MRH1
+          cd MRH1
           composer install --no-progress --prefer-dist
 
       - name: Run PHPUnit tests
         run: |
-          cd MRH1/MRH1
+          cd MRH1
           vendor/bin/phpunit --testdox
 
   e2e-tests:
@@ -44,12 +44,12 @@ jobs:
 
       - name: Install Cypress
         run: |
-          cd MRH1/MRH1
+          cd MRH1
           npm install cypress --save-dev
 
       - name: Run Cypress E2E tests
         run: |
-          cd MRH1/MRH1
+          cd MRH1
           npx cypress run --config-file cypress.config.js
         env:
           CYPRESS_baseUrl: http://khanzaar.infinityfreeapp.com
