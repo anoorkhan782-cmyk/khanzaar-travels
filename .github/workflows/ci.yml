@@ -7,13 +7,9 @@ on:
     branches: [main, master]
 
 jobs:
-  # ─────────────────────────────────────────
-  # JOB 1: PHPUnit Unit Tests
-  # ─────────────────────────────────────────
   unit-tests:
     name: PHP Unit Tests
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -25,18 +21,18 @@ jobs:
           coverage: none
 
       - name: Install Composer dependencies
-        run: composer install --no-progress --prefer-dist
+        run: |
+          cd MRH1/MRH1
+          composer install --no-progress --prefer-dist
 
       - name: Run PHPUnit tests
-        run: vendor/bin/phpunit --testdox
+        run: |
+          cd MRH1/MRH1
+          vendor/bin/phpunit --testdox
 
-  # ─────────────────────────────────────────
-  # JOB 2: Cypress E2E Tests
-  # ─────────────────────────────────────────
   e2e-tests:
     name: Cypress E2E Tests
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -47,9 +43,13 @@ jobs:
           node-version: "18"
 
       - name: Install Cypress
-        run: npm install cypress --save-dev
+        run: |
+          cd MRH1/MRH1
+          npm install cypress --save-dev
 
       - name: Run Cypress E2E tests
-        run: npx cypress run --config-file cypress.config.js
+        run: |
+          cd MRH1/MRH1
+          npx cypress run --config-file cypress.config.js
         env:
           CYPRESS_baseUrl: http://khanzaar.infinityfreeapp.com
